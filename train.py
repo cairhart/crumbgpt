@@ -18,3 +18,14 @@ decode = lambda l: enc.decode(l)
 
 print(encode("hii there"))
 print(decode(encode("hii there")))
+
+import torch
+data = torch.tensor(encode(text),dtype=torch.long)
+print(data.shape, data.type)
+print(data[:1000])
+
+n = int(0.9*len(data))
+train_data = data[:n]
+val_data = data[n:]
+
+
